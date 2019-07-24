@@ -75,28 +75,20 @@ Este API permite obtener todos los nodos de un árbol binario de búsqueda guard
   ```
   [
     {
-        "_id": "5d37c00fea1c9d3f9b0df114",
         "indice": 0,
-        "valor": 38,
-        "__v": 0
+        "valor": 38
     },
     {
-        "_id": "5d37c014ea1c9d3f9b0df115",
         "indice": 1,
-        "valor": 24,
-        "__v": 0
+        "valor": 24
     },
     {
-        "_id": "5d37c026ea1c9d3f9b0df116",
         "indice": 2,
-        "valor": 47,
-        "__v": 0
+        "valor": 47
     },
     {
-        "_id": "5d37c091ea1c9d3f9b0df117",
         "indice": 4,
-        "valor": 33,
-        "__v": 0
+        "valor": 33
     }
   ]
   ```

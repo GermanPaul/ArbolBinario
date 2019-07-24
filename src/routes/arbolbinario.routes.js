@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
 
 // Obtener todos los Nodos
 router.get('/', async (req, res) => {
-  const arbol = await Nodo.find();
+  const arbol = await Nodo.find({}, { _id: 0 , __v: 0});
   res.json(arbol);
 });
 
