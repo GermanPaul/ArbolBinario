@@ -111,7 +111,7 @@ router.get('/ancestor/:valor1/:valor2', async (req, res) => {
 // Eliminar todos los Nodos
 router.delete('/', async (req, res) => {
   const arbol = await Nodo.deleteMany({});
-  res.json({mensaje: 'Todos los nodos del arbol han sido eliminados.'});
+  res.json({status: 'ok', mensaje: 'Todos los nodos del árbol han sido eliminados.'});
 });
 
 module.exports = router;
