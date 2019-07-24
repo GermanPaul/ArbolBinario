@@ -105,7 +105,7 @@ Este API permite obtener todos los nodos de un árbol binario de búsqueda guard
   Ejemplo de una URL válida para hacer la petición: 
   
   ```
-  http://localhost:3000/arbolbinario/ancestor/47/33
+  http://localhost:3000/arbolbinario/47/33
   ```
   Ejemplo de un JSON enviado por el servidor como respuesta: 
   ```
