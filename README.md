@@ -71,7 +71,7 @@ Este API permite obtener todos los nodos de un árbol binario de búsqueda guard
   
 - Para obtener todos los nodos del árbol se debe hacer una petición HTTP GET a la URL `http://localhost:3000/arbolbinario`. El servidor responderá con un arreglo de múltiples JSON, donde cada uno representa un nodo.
   
-  Ejemplo de un JSON enviado por el servidor como respuesta: 
+  Ejemplo del arreglo de múltiples JSON enviado por el servidor como respuesta: 
   ```
   [
     {
