@@ -37,7 +37,7 @@ Para correr esta aplicación se requiere instalar [NodeJS](https://nodejs.org/es
 2. Iniciar el servidor de MongoDB.
   ```
   mkdir C:\data\db
-  cd C:\Program Files\MongoDB\Server\4.0\bin\
+  cd "C:\Program Files\MongoDB\Server\4.0\bin\"
   mongod.exe
   ```
 3. Ubicarse en la carpeta del proyecto (donde se encuentra el archivo **package.json**) e instalar las dependencias requeridas.
