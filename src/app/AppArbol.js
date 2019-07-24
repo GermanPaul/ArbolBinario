@@ -31,7 +31,7 @@ class App extends Component {
     addNodo(e){
         e.preventDefault();
         // console.log("enviando...");
-        fetch(`/arbolbinario/add`, {
+        fetch(`/arbolbinario`, {
             method: 'POST',
             body: JSON.stringify({
                 valor: this.state.numeroAdd
@@ -54,7 +54,7 @@ class App extends Component {
 
     getAncestro(e){
         e.preventDefault();
-        fetch(`/arbolbinario/ancestor/${this.state.nodoA1}/${this.state.nodoA2}`, {
+        fetch(`/arbolbinario/${this.state.nodoA1}/${this.state.nodoA2}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

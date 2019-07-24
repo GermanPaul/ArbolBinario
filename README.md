@@ -54,7 +54,7 @@ Al ejecutar el proyecto se levanta un servidor en `http://localhost:3000`, cuyo 
 ### API Rest del Árbol Binario de Búsqueda
 Este API permite obtener todos los nodos de un árbol binario de búsqueda guardado en la base de datos. Adicionalmente permite agregar nuevos nodos, obtener el ancestro común de dos nodos existentes o eliminar todos los nodos existentes del árbol.
 
-- Para agregar un nodo se debe hacer una petición HTTP POST a la URL `http://localhost:3000/arbolbinario/add` que contenga en su body un JSON con una clave "valor" cuyo valor corresponda al nodo que se quiere introducir. El servidor responderá con un JSON que contiene las claves "status", "indice" y "mensaje". El índice representa el lugar del árbol en el que fue guardado el nodo.
+- Para agregar un nodo se debe hacer una petición HTTP POST a la URL `http://localhost:3000/arbolbinario` que contenga en su body un JSON con una clave "valor" cuyo valor corresponda al nodo que se quiere introducir. El servidor responderá con un JSON que contiene las claves "status", "indice" y "mensaje". El índice representa el lugar del árbol en el que fue guardado el nodo.
   
   Ejemplo de un JSON válido para hacer la petición: 
   ```
@@ -100,7 +100,7 @@ Este API permite obtener todos los nodos de un árbol binario de búsqueda guard
     }
   ]
   ```
-- Para obtener el ancestro común de dos nodos existentes se debe hacer una petición HTTP GET a la URL `http://localhost:3000/arbolbinario/ancestor/{nodo1}/{nodo2}` donde `{nodo1}` y `{nodo2}` representan los valores de los nodos.
+- Para obtener el ancestro común de dos nodos existentes se debe hacer una petición HTTP GET a la URL `http://localhost:3000/arbolbinario/{nodo1}/{nodo2}` donde `{nodo1}` y `{nodo2}` representan los valores de los nodos.
 
   Ejemplo de una URL válida para hacer la petición: 
   

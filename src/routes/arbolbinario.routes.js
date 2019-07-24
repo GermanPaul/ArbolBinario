@@ -5,7 +5,7 @@ const router = express.Router();
 const Nodo = require('../models/nodo');
 
 // Agregar un Nodo
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
   const indice = 0;
   var { valor } = req.body;
   if( isNaN(valor) ){
@@ -60,7 +60,7 @@ router.get('/', async (req, res) => {
 });
 
 // Obtener Padre Común
-router.get('/ancestor/:valor1/:valor2', async (req, res) => {
+router.get('/:valor1/:valor2', async (req, res) => {
   var valor1 = req.params.valor1, valor2 = req.params.valor2;
   if(isNaN(valor1)|isNaN(valor2)){
     res.json({status: 'error', mensaje: 'Al menos uno de los valores no es válido.'});
