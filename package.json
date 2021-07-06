@@ -1,8 +1,8 @@
 {
   "name": "arbol-binario-de-busqueda",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Binary tree MERN project.",
+  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
