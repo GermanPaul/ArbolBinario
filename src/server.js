@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 // Conexión a Base de Datos
-const { mongoose } = require('./database');
+require('./database');
 
 // Configuraciones
 app.set('port', process.env.PORT || 3000);
@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Rutas
-app.use('/arbolbinario', require('./routes/arbolbinario.routes'));
+app.use('/arbolbinario', require('./routes/arbolbinario'));
 
 // Archivos Publicos
 app.use(express.static(path.join(__dirname, 'public')));;

@@ -5,10 +5,10 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            numeroAdd:'',
-            nodoA1:'',
-            nodoA2:'',
-            mensaje:'Bienvenido.',
+            numeroAdd: '',
+            nodoA1: '',
+            nodoA2: '',
+            mensaje: 'Bienvenido.',
             arbol: []
         };
         this.handleChange = this.handleChange.bind(this);
@@ -28,9 +28,8 @@ class App extends Component {
         });
     };
 
-    addNodo(e){
+    addNodo(e) {
         e.preventDefault();
-        // console.log("enviando...");
         fetch(`/arbolbinario`, {
             method: 'POST',
             body: JSON.stringify({
@@ -41,18 +40,17 @@ class App extends Component {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
-            this.setState({numeroAdd: '', mensaje: data.mensaje});
-            this.fetchArbol();
-        })
-        .catch(err => {
-            console.error(err);
-        });
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ numeroAdd: '', mensaje: data.mensaje });
+                this.fetchArbol();
+            })
+            .catch(err => {
+                console.error(err);
+            });
     };
 
-    getAncestro(e){
+    getAncestro(e) {
         e.preventDefault();
         fetch(`/arbolbinario/${this.state.nodoA1}/${this.state.nodoA2}`, {
             method: 'GET',
@@ -61,46 +59,51 @@ class App extends Component {
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
-            this.setState({mensaje: data.mensaje});
-        })
-        .catch(err => {
-            console.error(err);
-        });
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ mensaje: data.mensaje });
+            })
+            .catch(err => {
+                console.error(err);
+            });
     };
 
     fetchArbol() {
         fetch('/arbolbinario')
-        .then(res => res.json())
-        .then(data => {
-            this.setState({arbol: data});
-            // console.log(this.state.arbol);
-        });
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ arbol: data });
+            });
     };
 
     borrarArbol(e) {
         e.preventDefault();
-        fetch('/arbolbinario',{
+        fetch('/arbolbinario', {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            this.setState({mensaje: data.mensaje});
-            this.fetchArbol();
-        });
+            .then(res => res.json())
+            .then(data => {
+                this.setState({ mensaje: data.mensaje });
+                this.fetchArbol();
+            });
+    };
+
+    generateTableData(number) {
+        const array = new Array(number);
+        return [...Array(number)].map((_value, i) =>
+            <td key={i} ></td>
+        )
     };
 
     render() {
-        var arbolArreglo = ["","","","","","","","","","","","","","",""];
-        this.state.arbol.map((nodo)=>{
-            if (nodo.indice<15){
-                arbolArreglo[nodo.indice]=nodo.valor;
+        var arbolArreglo = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
+        this.state.arbol.map((nodo) => {
+            if (nodo.indice < 15) {
+                arbolArreglo[nodo.indice] = nodo.valor;
             };
         });
         return (
@@ -112,7 +115,7 @@ class App extends Component {
                     <div id="mensajeB">
                         <div id="mensaje">
                             {this.state.mensaje}
-                        </div>            
+                        </div>
                     </div>
                 </div>
                 <div className="row" id="paneles">
@@ -137,7 +140,7 @@ class App extends Component {
                     </div>
                     <div className="panel">
                         <div id="panelA2">
-                            <form onSubmit={this.borrarArbol} style={{height: "100%"}}>
+                            <form onSubmit={this.borrarArbol} style={{ height: "100%" }}>
                                 <button id="buttonReiniciar" type="submit">Reiniciar Árbol</button>
                             </form>
                         </div>
@@ -150,53 +153,25 @@ class App extends Component {
                             <table>
                                 <tbody>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(7)}
                                         <td id="td0">{arbolArreglo[0]}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(7)}
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(3)}
                                         <td id="td1">{arbolArreglo[1]}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(7)}
                                         <td id="td2">{arbolArreglo[2]}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(3)}
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td id="td3">{arbolArreglo[3]}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(3)}
                                         <td id="td4">{arbolArreglo[4]}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(3)}
                                         <td id="td5">{arbolArreglo[5]}</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        {this.generateTableData(3)}
                                         <td id="td6">{arbolArreglo[6]}</td>
                                         <td></td>
                                     </tr>
@@ -219,7 +194,7 @@ class App extends Component {
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>            
+                        </div>
                     </div>
                 </div>
             </div>
